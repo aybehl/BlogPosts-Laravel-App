@@ -52,29 +52,37 @@ class PostController extends Controller
     }
 
     public function update(Request $request, $id)
-{
-    $request->validate([
-        'title' => 'required|string|max:255',
-        'content' => 'required',
-        'publish_date' => 'required|date',
-        'author_id' => 'required|exists:authors,author_id',
-    ]);
-
-    try {
-        $post = Post::findOrFail($id);
-        $post->update([
-            'title' => $request->title,
-            'content' => $request->content,
-            'publish_date' => $request->publish_date,
-            'author_id' => $request->author_id,
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required',
+            'publish_date' => 'required|date',
+            'author_id' => 'required|exists:authors,author_id',
         ]);
 
-        Session::flash('success', 'Post updated successfully!');
-    } catch (\Exception $e) {
-        Session::flash('error', 'Failed to update post. Please try again.');
+        try {
+            $post = Post::findOrFail($id);
+            $post->update([
+                'title' => $request->title,
+                'content' => $request->content,
+                'publish_date' => $request->publish_date,
+                'author_id' => $request->author_id,
+            ]);
+
+            Session::flash('success', 'Post updated successfully!');
+        } catch (\Exception $e) {
+            Session::flash('error', 'Failed to update post. Please try again.');
+        }
+
+        return redirect()->route('posts.index');
     }
 
-    return redirect()->route('posts.index');
-}
+    public function destroy($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->delete();
+        Session::flash('success', 'Post deleted successfully!');
+        return redirect()->route('posts.index');
+    }
 
 }

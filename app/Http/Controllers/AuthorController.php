@@ -62,4 +62,17 @@ class AuthorController extends Controller
 
         return redirect()->route('authors.index');
     }
+
+    public function destroy($id){
+        $author = Author::findOrFail($id);
+
+        if ($author->posts()->count() > 0) {
+            Session::flash('error', 'Cannot delete author. There are posts associated with this author.');
+        } else {
+            $author->delete();
+            Session::flash('success', 'Author deleted successfully!');
+        }
+
+        return redirect()->route('authors.index');
+    }
 }
