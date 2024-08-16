@@ -11,6 +11,11 @@ class Author extends Model
     protected $table = 'authors';
     protected $primaryKey = 'author_id';
 
+    protected $fillable = [
+        'author_name',
+        'email',
+    ];
+    
     public function posts(){
         return $this->hasMany(Post::class, 'author_id');
     }

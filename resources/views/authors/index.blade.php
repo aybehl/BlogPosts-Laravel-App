@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+
         <h1 class="text-center">Authors</h1>
         <a href="{{ route('authors.create') }}" class="btn btn-primary mb-3">Add Author</a>
         <table class="table table-bordered">
