@@ -36,4 +36,30 @@ class AuthorController extends Controller
         }
         return redirect()->route('authors.index');
     }
+
+    public function edit($id){
+        $author = Author::findOrFail($id);
+        return view('authors.edit', compact('author'));
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'author_name' => 'required|string|max:255',
+            'email' => 'required|email',
+        ]);
+
+        try {
+            $author = Author::findOrFail($id);
+            $author->update([
+                'author_name' => $request->author_name,
+                'email' => $request->email,
+            ]);
+    
+            Session::flash('success', 'Author updated successfully!');
+        } catch(\Exception $e){
+            Session::flash('error', 'Failed to update author. Please try again.');
+        }
+
+        return redirect()->route('authors.index');
+    }
 }
