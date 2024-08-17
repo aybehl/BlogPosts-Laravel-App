@@ -9,8 +9,7 @@ Welcome to the Blogging Platform! This project is designed to provide a comprehe
 The Blogging Platform includes the following key features:
 - **Author Management**: Users can manage authors by adding new entries, updating existing ones, and viewing all authors.
 - **Post Management**: Users can manage blog posts by creating new posts, editing existing ones, and viewing all posts.
-- **User Authentication**: Secure login and registration functionality to manage user sessions and access control.
-- **Responsive Design**: The application’s design is fully responsive, ensuring usability across various devices and screen sizes.
+- **User Authentication**: Secure login and registration functionality to manage user sessions. User cannot add/update/delete Authors and Posts if not Authenticated.
 
 ## Database Schema
 
@@ -67,8 +66,6 @@ Here are some screenshots demonstrating the user flow of the application:
 
 11. **Delete Post**:
    ![Authors Management](screenshots/DeletePost.png)
-
-
 
 ## Thoughts on Laravel
 
