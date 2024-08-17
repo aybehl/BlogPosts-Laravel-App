@@ -1,0 +1,20 @@
+/* Custom styles for Toastr notifications */
+.toast-top-right {
+    top: 100px;
+    right: 20px;
+}
+
+/* Custom Toastr styles */
+.toast {
+    color: #333 !important; /* Ensures text color is applied */
+    background-color: #f9f9f9 !important; /* Ensures background color is applied */
+    border: 1px solid #ccc !important; /* Ensures border is applied */
+}
+
+.toast-success {
+    background-color: #53d872 !important; /* Success background color */
+}
+
+.toast-error {
+    background-color: #d0858b !important; /* Error background color */
+}
