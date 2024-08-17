@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-center">Edit Post</h1>
+        <h1 class="font-semibold text-center mt-4">Edit Post</h1>
         <form action="{{ route('posts.update', $post->post_id) }}" method="POST">
             @csrf
             @method('PUT')

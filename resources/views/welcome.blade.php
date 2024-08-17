@@ -7,7 +7,7 @@
         }
     </style>
     <div class="d-flex flex-column justify-content-center align-items-center custom-margin">
-        <div class="text-center mb-4">
+        <div class="text-center mb-4 text-8xl">
             <h1>Welcome to the Blogging Platform</h1>
             <p>This application allows you to manage authors and their blog posts.</p>
         </div>
